@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 // =============================================================================
 // Module: full_adder (1-bit Full Adder)
-// Description: Standard combinational 1-bit full adder with Sum and Carry outputs
+// Description: High-speed full adder with explicit Carry-Generate and Propagate
 // =============================================================================
 
 module full_adder (
@@ -12,7 +12,11 @@ module full_adder (
     output wire cout
 );
 
-    assign sum  = a ^ b ^ cin;
-    assign cout = (a & b) | (cin & (a ^ b));
+    // Internal Generate (G) and Propagate (P) signals
+    wire p = a ^ b;
+    wire g = a & b;
+
+    assign sum  = p ^ cin;
+    assign cout = g | (p & cin);
 
 endmodule
