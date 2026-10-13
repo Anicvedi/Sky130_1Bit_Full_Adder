@@ -1,0 +1,11 @@
+================================================================================
+VERIFICATION REPORT: 1-Bit Full Adder
+Tool: Icarus Verilog 12.0
+================================================================================
+Test Suite: Exhaustive Truth Table Verification (2^3 = 8 Input Vectors)
+Total Vectors Applied: 8
+Vectors Passed:        8
+Vectors Failed:        0
+Functional Coverage:   100.0%
+Status:                PASSED
+================================================================================
