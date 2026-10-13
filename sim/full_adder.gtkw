@@ -1,0 +1,16 @@
+[*]
+[*] GTKWave Analyzer Configuration for 1-Bit Full Adder
+[*]
+[dumpfile] "full_adder.vcd"
+[savefile] "full_adder.gtkw"
+[timestart] 0
+[size] 1200 600
+@28
+tb_full_adder.a
+tb_full_adder.b
+tb_full_adder.cin
+@29
+tb_full_adder.sum
+tb_full_adder.cout
+[pattern_trace] 1
+[pattern_trace] 0
