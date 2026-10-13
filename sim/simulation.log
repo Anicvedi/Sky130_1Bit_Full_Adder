@@ -1,0 +1,3 @@
+iverilog -g2012 -Wall -I rtl -o sim/full_adder.vvp rtl/full_adder.v tb/tb_full_adder.v
+cd sim && vvp full_adder.vvp
+VCD Error: tb/tb_full_adder.v:16: Unable to open sim/full_adder.vcd for output.
