@@ -12,3 +12,10 @@ set_input_delay -clock vclk -min 0.200 [get_ports {a b cin}]
 # Output Delay Constraints (Budgeted external setup requirements)
 set_output_delay -clock vclk -max 2.000 [get_ports {sum cout}]
 set_output_delay -clock vclk -min 0.400 [get_ports {sum cout}]
+
+# Output Capacitive Load (Standard 15 fF external loading)
+set_load 0.015 [get_ports {sum cout}]
+
+# Design Rule Constraints (DRC)
+set_max_transition 0.400 [current_design]
+set_max_fanout 8 [current_design]
