@@ -1,1 +1,78 @@
+OpenSTA 3.1.0 6541058fda Copyright (c) 2026, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
 Warning 1171: /home/anirudh/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib line 23, default_fanout_load is 0.0.
+Warning 419: full_adder.sdc line 6, transition time can not be specified for virtual clocks.
+==================================================
+>>> Setup Timing Check (Max Delay Paths):
+==================================================
+Startpoint: b (input port clocked by vclk)
+Endpoint: sum (output port clocked by vclk)
+Path Group: vclk
+Path Type: max
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock vclk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     1.500    1.500 ^ input external delay
+   0.005    0.000    0.000    1.500 ^ b (in)
+            0.000    0.000    1.500 ^ _0_/A (sky130_fd_sc_hd__xor3_1)
+   0.015    0.131    0.451    1.951 v _0_/X (sky130_fd_sc_hd__xor3_1)
+            0.131    0.000    1.951 v sum (out)
+                              1.951   data arrival time
+
+            0.000   10.000   10.000   clock vclk (rise edge)
+                     0.000   10.000   clock network delay (ideal)
+                    -0.200    9.800   clock uncertainty
+                     0.000    9.800   clock reconvergence pessimism
+                    -2.000    7.800   output external delay
+                              7.800   data required time
+---------------------------------------------------------------------------
+                              7.800   data required time
+                             -1.951   data arrival time
+---------------------------------------------------------------------------
+                              5.849   slack (MET)
+
+
+==================================================
+>>> Hold Timing Check (Min Delay Paths):
+==================================================
+Startpoint: a (input port clocked by vclk)
+Endpoint: cout (output port clocked by vclk)
+Path Group: vclk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock vclk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.200    0.200 ^ input external delay
+   0.008    0.000    0.000    0.200 ^ a (in)
+            0.000    0.000    0.200 ^ _1_/B (sky130_fd_sc_hd__maj3_1)
+   0.015    0.162    0.212    0.412 ^ _1_/X (sky130_fd_sc_hd__maj3_1)
+            0.162    0.000    0.412 ^ cout (out)
+                              0.412   data arrival time
+
+            0.000    0.000    0.000   clock vclk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.200    0.200   clock uncertainty
+                     0.000    0.200   clock reconvergence pessimism
+                    -0.400   -0.200   output external delay
+                             -0.200   data required time
+---------------------------------------------------------------------------
+                             -0.200   data required time
+                             -0.412   data arrival time
+---------------------------------------------------------------------------
+                              0.612   slack (MET)
+
+
+==================================================
+>>> Slack Metrics (WNS & TNS):
+==================================================
+worst slack max 5.85
+worst slack min 0.61
+tns max 0.00
